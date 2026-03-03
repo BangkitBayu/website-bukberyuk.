@@ -19,6 +19,16 @@ a {
   text-decoration: none;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+nav {
+  transition: all ease-in 0.3s;
+}
+
 nav ul li a {
   color: white;
   position: relative;
@@ -93,7 +103,7 @@ nav ul li a:hover {
   border: none;
   font-weight: normal;
 }
- 
+
 #mobile-nav {
   display: flex;
   flex-direction: column;
@@ -130,5 +140,17 @@ nav ul li a:hover {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 100vh;
+}
+
+header.active {
+  background-color: white;
+  backdrop-filter: 10px;
+}
+
+header.active #desktop-nav li a {
+  color: black;
+}
+
+header.active #desktop-nav li a:hover {
+  color: var(--primary-color);
 }
