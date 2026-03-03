@@ -6,6 +6,11 @@
   font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body.active {
+    overflow: hidden;
+    height: 100vh;
+}
+
 a {
   text-decoration: none;
 }
@@ -35,7 +40,22 @@ nav ul li a:hover::after {
 }
 
 nav ul li a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+#nav-toggle {
+  background-color: transparent;
+  border: none;
+  right: 0;
+  top: 0;
+}
+
+#nav-toggle span {
+  width: 1rem;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all ease-in 0.3s;
 }
 
 .dark-overlay {
@@ -74,4 +94,34 @@ nav ul li a:hover {
 .cus-btn:first-child {
   background-color: var(--primary-color);
   color: white;
+}
+
+#mobile-nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+#mobile-nav ul {
+    margin-top: 4.5rem;
+}
+
+#nav-toggle.active span:last-child {
+    transform: skewY(-50deg) translateY(-3px);
+    background-color: red;
+}
+
+#nav-toggle.active span:nth-child(2) {
+    display: none;
+}
+
+#nav-toggle.active span:first-child {
+    transform: skewY(50deg) translateY(2px);
+    background-color: red;
 }

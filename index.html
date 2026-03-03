@@ -16,14 +16,42 @@
     <!-- Link to css - custom style -->
     <link rel="stylesheet" href="styles/style.css">
 
-    <title>BukberYuk. - Reservasi Tempat Buka Bersama</title>
+    <title>BukberYuk. - Reservasi Tempat Buka Puasa Bersama</title>
 </head>
 
 <body>
     <header>
-        <nav class="fixed-top container-fluid py-3 d-flex justify-content-between align-content-center px-4">
-            <h1 class=" title h4">BukberYuk.</h1>
-            <ul class=" d-flex align-items-center justify-content-center column-gap-3 list-unstyled">
+        <nav
+            class="fixed-top container-fluid d-flex justify-content-between align-items-center py-lg-3 py-4 px-4">
+            <h1 class=" title h4 z-2">BukberYuk.</h1>
+
+            <button id="nav-toggle" class=" flex-column row-gap-1 d-lg-none d-flex z-2 position-relative">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div id="mobile-nav" class=" d-none">
+                <ul class=" d-flex flex-column row-gap-5 list-unstyled px-4">
+                    <li>
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li>
+                        <a href="#about">Tentang</a>
+                    </li>
+                    <li>
+                        <a href="#reservasi">Reservasi</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Kontak</a>
+                    </li>
+                    <li>
+                        <a href="#faq">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="d-lg-flex align-items-center justify-content-center column-gap-3 list-unstyled d-none">
                 <li>
                     <a href="#">Beranda</a>
                 </li>
