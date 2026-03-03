@@ -21,8 +21,7 @@
 
 <body>
     <header>
-        <nav
-            class="fixed-top container-fluid d-flex justify-content-between align-items-center py-lg-3 py-4 px-4">
+        <nav class="fixed-top container-fluid d-flex justify-content-between align-items-center py-lg-3 py-4 px-4">
             <h1 class=" title h4 z-2">BukberYuk.</h1>
 
             <button id="nav-toggle" class=" flex-column row-gap-1 d-lg-none d-flex z-2 position-relative">
@@ -59,7 +58,7 @@
                     <a href="#about">Tentang</a>
                 </li>
                 <li>
-                    <a href="#reservasi">Reservasi</a>
+                    <a href="#reservation">Reservasi</a>
                 </li>
                 <li>
                     <a href="#contact">Kontak</a>
@@ -80,8 +79,9 @@
                             tersayang dengan
                             <span class=" title">BukberYuk.</span>
                         </p>
-                        <div class=" container d-flex justify-content-center align-items-center column-gap-3 mt-2">
-                            <button class=" cus-btn rounded">
+                        <div
+                            class=" container-fluid d-flex justify-content-center align-items-center column-gap-3 mt-2">
+                            <button class=" cus-btn rounded w-auto px-4 py-2" style="background-color:var(--primary-color); color: white;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16">
                                     <path fill="#fff"
                                         d="M.801 10.134a.38.38 0 0 1 .27-.349L4.09 8.736l.083-.02c.194-.03.392.065.466.235c.085.194-.023.413-.241.489l-2.028.704l5.667 2.054l5.596-2.073l-2.017-.684l-.076-.035c-.167-.094-.242-.282-.17-.452c.074-.17.27-.267.465-.238l.083.02l3.01 1.022c.162.055.27.193.273.347a.38.38 0 0 1-.261.353l-6.737 2.496a.47.47 0 0 1-.322.002l-6.816-2.47a.38.38 0 0 1-.264-.352" />
@@ -90,7 +90,7 @@
                                 </svg>
                                 Cari tempat
                             </button>
-                            <button class=" cus-btn rounded">
+                            <button class=" cus-btn rounded w-auto px-4 py-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
                                     <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="1.5">
@@ -109,8 +109,23 @@
         </section>
 
         <section id="about" class=" min-vh-100">
-
+            <div class=" row">
+                <div class="col-6">
+                    <img class=" img-fluid mt-5 ms-3 rounded-3" id="about-img" src="assets/img/about-bg.webp" alt="">
+                </div>
+                <div class="col-6 p-5 mt-lg-4">
+                    <h1 class=" h1 title">Tentang Kami</h1>
+                    <p><span class=" title">BukberYuk.</span> adalah sebuah platform online berbasis website yang
+                        menyediakan layanan reservasi
+                        tempat berbuka bersama. Alasan kami hadir adalah untuk memberikan anda rekomendasi tempat buka
+                        bersama yang pas dengan keinginan bersama dan memudahkan pemesanan tempat. Dengan <span
+                            class=" title">BukberYuk.</span>
+                        jadikan setiap momen buka bersama anda lebih berarti.</p>
+                    <button class=" cus-btn rounded w-auto px-4 py-2" style="background-color:var(--primary-color); color: white;">Kontak kami</button>
+                </div>
+            </div>
         </section>
+        <section id="reservation" class=" min-vh-100"></section>
     </main>
     <footer></footer>
 
