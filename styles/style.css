@@ -154,3 +154,25 @@ header.active #desktop-nav li a {
 header.active #desktop-nav li a:hover {
   color: var(--primary-color);
 }
+
+#search-box {
+    padding: 0.4rem 0.8rem;
+    width: 50%;
+}
+
+#search-box input {
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+.card img {
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+}
+
+.card #star {
+  width: 10px;
+  height: 10px;
+}
