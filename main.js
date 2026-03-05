@@ -6,8 +6,63 @@ const header = document.querySelector("header");
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 
+const displayRestaurant = document.getElementById("display-restaurant");
+const searchResultBox = document.getElementById("search-result-box");
+
+const url = "./DATABASE_RUMAH_MAKAN.json";
+
 function contactFormat(no) {
   return no.split("-").join("").replace("0", "62");
+}
+
+function renderCountRestaurant(count) {
+  const searchCount = document.createElement("h5");
+  searchCount.classList.add("text-center", "h5");
+  searchCount.innerText = `Hasil pencarian: ${count}`;
+  searchResultBox.appendChild(searchCount);
+}
+
+function notFoundDisplay() {
+  const container = document.createElement("div");
+  container.classList.add(
+    "container-fluid",
+    "d-flex",
+    "flex-column",
+    "min-vw-100",
+    "justify-content-center",
+    "align-items-center",
+  );
+
+  const img = document.createElement("img");
+  img.setAttribute(
+    "src",
+    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0xMi43MTMgMTYuNzEzUTEzIDE2LjQyNSAxMyAxNnQtLjI4OC0uNzEyVDEyIDE1dC0uNzEyLjI4OFQxMSAxNnQuMjg4LjcxM1QxMiAxN3QuNzEzLS4yODhNMTEgMTNoMlY3aC0yem0xIDlxLTIuMDc1IDAtMy45LS43ODh0LTMuMTc1LTIuMTM3VDIuNzg4IDE1LjlUMiAxMnQuNzg4LTMuOXQyLjEzNy0zLjE3NVQ4LjEgMi43ODhUMTIgMnQzLjkuNzg4dDMuMTc1IDIuMTM3VDIxLjIxMyA4LjFUMjIgMTJ0LS43ODggMy45dC0yLjEzNyAzLjE3NXQtMy4xNzUgMi4xMzhUMTIgMjJtMC0ycTMuMzUgMCA1LjY3NS0yLjMyNVQyMCAxMnQtMi4zMjUtNS42NzVUMTIgNFQ2LjMyNSA2LjMyNVQ0IDEydDIuMzI1IDUuNjc1VDEyIDIwbTAtOCIgLz4KPC9zdmc+",
+  );
+
+  const message = document.createElement("h3");
+  message.classList.add("h5");
+
+  message.innerHTML = "Maaf, lokasi yang anda cari tidak ada";
+
+  container.append(img, message);
+  displayRestaurant.appendChild(container);
+}
+
+function getAndDisplayRestaurant(file) {
+  fetch("./DATABASE_RUMAH_MAKAN.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("failed to fetch");
+      }
+      return response.json();
+    })
+    .then((data) =>
+      //  console.log(data)
+      renderData(data),
+    )
+    .catch((error) => {
+      console.error(`Failed to fetch data: ${error}`);
+    });
 }
 
 navToggle.addEventListener("click", () => {
@@ -17,7 +72,7 @@ navToggle.addEventListener("click", () => {
 });
 
 window.addEventListener("scroll", () => {
-  console.log(window.scrollY);
+  // console.log(window.scrollY);
   if (window.scrollY > 200) {
     header.classList.add("active");
   } else {
@@ -26,12 +81,39 @@ window.addEventListener("scroll", () => {
 });
 
 searchBtn.addEventListener("click", () => {
-  alert(searchInput.value);
+  if (!searchInput.value) {
+    displayRestaurant.innerHTML = "";
+    searchResultBox.innerHTML = ""
+    notFoundDisplay();
+  } else {
+    displayRestaurant.innerHTML = "";
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const restaurants = data.filter((d) => {
+          if (d.Name.toLowerCase().includes(searchInput.value.toLowerCase())) {
+            return d;
+          } else {
+            return null;
+          }
+        });
+
+        if (restaurants.length == 0) {
+          searchResultBox.innerHTML = "";
+          renderCountRestaurant(restaurants.length);
+          return notFoundDisplay();
+        } else {
+          searchResultBox.innerHTML = "";
+          renderCountRestaurant(restaurants.length);
+          return renderData(restaurants);
+        }
+      });
+  }
 });
 
 function renderData(data) {
-  let displayRestaurant = document.getElementById("display-restaurant");
-
   data.forEach((d) => {
     let col = document.createElement("div");
     let a = document.createElement("a");
@@ -61,7 +143,7 @@ function renderData(data) {
     star.setAttribute("id", "star");
     img.classList.add("card-img-top");
     name.classList.add("card-title");
-    address.classList.add("text-muted", "card-text", "small" , "flex-grow-1");
+    address.classList.add("text-muted", "card-text", "small", "flex-grow-1");
     ratingInfo.classList.add("d-flex", "align-items-baseline", "fw-semibold");
     rating.classList.add("small");
 
@@ -81,18 +163,5 @@ function renderData(data) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("./DATABASE_RUMAH_MAKAN.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("failed to fetch");
-      }
-      return response.json();
-    })
-    .then((data) =>
-      //  console.log(data)
-      renderData(data),
-    )
-    .catch((error) => {
-      console.error(`Failed to fetch data: ${error}`);
-    });
+  getAndDisplayRestaurant("./DATABASE_RUMAH_MAKAN.json");
 });
