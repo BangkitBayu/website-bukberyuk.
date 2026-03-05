@@ -83,7 +83,7 @@ window.addEventListener("scroll", () => {
 searchBtn.addEventListener("click", () => {
   if (!searchInput.value) {
     displayRestaurant.innerHTML = "";
-    searchResultBox.innerHTML = ""
+    searchResultBox.innerHTML = "";
     notFoundDisplay();
   } else {
     displayRestaurant.innerHTML = "";
@@ -119,7 +119,8 @@ function renderData(data) {
     let a = document.createElement("a");
 
     col.classList.add("col");
-    a.setAttribute("href", `https://wa.me/${contactFormat(d.Phone)}`);
+    a.setAttribute("href", `https://wa.me/${contactFormat(d.Phone).trim()}`);
+    a.setAttribute("target", "_blank");
 
     let card = document.createElement("div");
     let cardBody = document.createElement("div");
