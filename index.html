@@ -148,7 +148,31 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class=" min-vh-100 py-5">
+        <section id="contact" class=" min-vh-100 py-5 px-3">
+            <div class="container-fluid border rounded shadow-sm py-3">
+                <h3 class=" title h3 text-center">Kontak Kami</h3>
+                <form class=" mt-2 px-2">
+                    <div class="mb-3">
+                        <label for="" class=" form-label">Firstname</label>
+                        <input type="text" class=" form-control" placeholder=" Enter first name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class=" form-label">Lastname</label>
+                        <input type="text" class=" form-control" placeholder=" Enter last name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class=" form-label">Subject</label>
+                        <input type="text" class=" form-control" placeholder=" Enter subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class=" form-label">Email</label>
+                        <input type="email" class=" form-control" placeholder=" Enter email">
+                    </div>
+
+                    <button type="submit" class="cus-btn w-100 rounded py-2"
+                        style="background-color: var(--primary-color); color:white">Submit</button>
+                </form>
+            </div>
         </section>
         <section id="faq" class=" min-vh-100 py-5">
             <div class="container-fluid">
@@ -166,7 +190,7 @@
                                             d="M8.2 751.4c0 8.6 3.4 17.401 10 24.001c13.2 13.2 34.8 13.2 48 0l451.8-451.8l445.2 445.2c13.2 13.2 34.8 13.2 48 0s13.2-34.8 0-48L542 251.401c-13.2-13.2-34.8-13.2-48 0l-475.8 475.8c-6.8 6.8-10 15.4-10 24.2z" />
                                     </svg>
                                 </section>
-                                <section class="container-fluid text-left item-expand mt-1">
+                                <section class="container-fluid text-left item-expand mt-1 d-none">
                                     <ol class=" text-muted text-decoration-none">
                                         <li>
                                             Pergi ke halaman reservasi
@@ -194,33 +218,37 @@
                                             d="M8.2 751.4c0 8.6 3.4 17.401 10 24.001c13.2 13.2 34.8 13.2 48 0l451.8-451.8l445.2 445.2c13.2 13.2 34.8 13.2 48 0s13.2-34.8 0-48L542 251.401c-13.2-13.2-34.8-13.2-48 0l-475.8 475.8c-6.8 6.8-10 15.4-10 24.2z" />
                                     </svg>
                                 </section>
-                                <section class="container-fluid text-left item-expand mt-1">
-                                    <p class=" text-muted">Customer tidak akan dikenai biaya, namun jika anda pemilik toko/kios yang ingin
-                                        mendaftarkan toko/kios wajib membayar fee dan bulanan untuk layanan promosi di website BukberYuk.</p>
+                                <section class="container-fluid text-left item-expand mt-1 d-none">
+                                    <p class=" text-muted">Customer tidak akan dikenai biaya, namun jika anda pemilik
+                                        toko/kios yang ingin
+                                        mendaftarkan toko/kios wajib membayar fee dan bulanan untuk layanan promosi di
+                                        website BukberYuk.</p>
                                 </section>
                             </button>
                             <button id="2"
                                 class=" d-flex flex-column justify-content-center align-items-center text-start px-3 py-2 container-fluid rounded position-relative shadow-sm border btn-expand">
                                 <section class=" container-fluid d-flex justify-content-between align-items-center">
-                                    <span>Bagaimana jika ingin bekerja sama dengan BukberYuk. untuk promosi online?</span>
+                                    <span>Bagaimana jika ingin bekerja sama dengan BukberYuk. untuk promosi
+                                        online?</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" class="arrow-icon"
                                         viewBox="0 0 1024 1024">
                                         <path fill="#000"
                                             d="M8.2 751.4c0 8.6 3.4 17.401 10 24.001c13.2 13.2 34.8 13.2 48 0l451.8-451.8l445.2 445.2c13.2 13.2 34.8 13.2 48 0s13.2-34.8 0-48L542 251.401c-13.2-13.2-34.8-13.2-48 0l-475.8 475.8c-6.8 6.8-10 15.4-10 24.2z" />
                                     </svg>
                                 </section>
-                                <section class="container-fluid text-left item-expand mt-1">
+                                <section class="container-fluid text-left item-expand mt-1 d-none">
                                     <p class=" text-muted">Akan segera hadir, nantikan info terbaru selanjutnya.</p>
                                 </section>
                             </button>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <p class=" text-center">Copyright <span id="year"></span> &copy; BukberYuk.</p>
+    </footer>
 
     <!-- Link to bootstrap js -->
     <script src="bootstrap/dist/js/bootstrap.min.js "></script>

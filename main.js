@@ -13,6 +13,10 @@ const searchResultBox = document.getElementById("search-result-box");
 
 const url = "./DATABASE_RUMAH_MAKAN.json";
 
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+});
+
 function contactFormat(no) {
   return no.split("-").join("").replace("0", "62");
 }
@@ -173,7 +177,7 @@ btnExpandFaq.forEach((btn) => {
   btn.addEventListener("click", () => {
     let currentBtn = btnExpandFaq[parseInt(event.currentTarget.id)];
     const itemExpand = currentBtn.lastElementChild;
-    currentBtn.classList.toggle("active")
+    currentBtn.classList.toggle("active");
     itemExpand.classList.toggle("d-none");
   });
 });
