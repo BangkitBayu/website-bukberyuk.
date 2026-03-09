@@ -3,6 +3,8 @@ const mobileNav = document.getElementById("mobile-nav");
 const desktopNav = document.getElementById("desktop-nav");
 const header = document.querySelector("header");
 
+const btnExpandFaq = document.querySelectorAll(".btn-expand");
+
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 
@@ -165,4 +167,13 @@ function renderData(data) {
 
 window.addEventListener("DOMContentLoaded", () => {
   getAndDisplayRestaurant("./DATABASE_RUMAH_MAKAN.json");
+});
+
+btnExpandFaq.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    let currentBtn = btnExpandFaq[parseInt(event.currentTarget.id)];
+    const itemExpand = currentBtn.lastElementChild;
+    currentBtn.classList.toggle("active")
+    itemExpand.classList.toggle("d-none");
+  });
 });
