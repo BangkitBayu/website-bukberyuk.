@@ -1,5 +1,6 @@
 :root {
   --primary-color: #f59e0b;
+  --secondary-color: #efefef;
 }
 
 * {
@@ -144,7 +145,7 @@ nav ul li a:hover {
 
 header.active {
   background-color: white;
-  backdrop-filter: 10px;
+  border-bottom: 1px solid #00000076;
 }
 
 header.active #desktop-nav li a {
@@ -156,12 +157,12 @@ header.active #desktop-nav li a:hover {
 }
 
 #search-box {
-    padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.8rem;
 }
 
 #search-box input {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 .card img {
@@ -183,5 +184,17 @@ header.active #desktop-nav li a:hover {
 
 #faq button.active .arrow-icon {
   transition: all ease-in 0.3s;
-  transform: rotate(-180deg)
+  transform: rotate(-180deg);
+}
+
+footer {
+  border-top: 1px solid #00000076;
+  background: var(--primary-color);
+}
+footer ul li a {
+  transition: all ease-in 0.3s;
+}
+footer ul li a:hover{
+  text-decoration: underline !important;
+  color: var(--secondary-color) !important;
 }

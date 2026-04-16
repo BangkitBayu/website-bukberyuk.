@@ -2,6 +2,9 @@ const navToggle = document.getElementById("nav-toggle");
 const mobileNav = document.getElementById("mobile-nav");
 const desktopNav = document.getElementById("desktop-nav");
 const header = document.querySelector("header");
+const findPlaceBtn = document.getElementById("find-place-btn")
+const faqBtn = document.getElementById("faq-btn")
+const contactOurBtn = document.getElementById("contact-our-btn");
 
 const btnExpandFaq = document.querySelectorAll(".btn-expand");
 
@@ -16,6 +19,19 @@ const url = "./DATABASE_RUMAH_MAKAN.json";
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
 });
+
+findPlaceBtn.addEventListener("click", () => {
+  window.location.href = "#reservation"
+})
+
+faqBtn.addEventListener("click", () => {
+  window.location.href = "#faq"
+})
+
+contactOurBtn.addEventListener("click", () => {
+  window.location.href = "#contact"
+})
+
 
 function contactFormat(no) {
   return no.split("-").join("").replace("0", "62");
